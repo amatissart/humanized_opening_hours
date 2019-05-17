@@ -631,7 +631,7 @@ class MonthDayDate:
         else:  # self.kind == "monthday"
             if self.year:
                 date = datetime.date(self.year, self.month, self.monthday)
-                return babel.dates.format_date(date, format="long")
+                return babel.dates.format_date(date, format="long", locale=babel_locale)
             else:
                 date = datetime.date(2000, self.month, self.monthday)
                 return date.strftime(_("%B %-d"))

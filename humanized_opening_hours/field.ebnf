@@ -6,11 +6,11 @@ EVENT : "dawn" | "sunrise" | "sunset" | "dusk"
 EASTER : "easter"
 OPEN : " open"
 CLOSED : " closed" | " off"
-ALWAYS_OPEN.2 : "24/7"
-WEEK.2 : "week "
+ALWAYS_OPEN : "24/7"
+WEEK : "week "
 
 TWO_DIGITS.1 : /[0-9][0-9]+/
-YEAR.3 : /([12][0-9]{3})+/
+YEAR : /([12][0-9]{3})+/
 
 PLUS_OR_MINUS : "+" | "-"
 
@@ -78,8 +78,8 @@ year : YEAR
 monthday_selector : monthday_range ("," monthday_range)*
 monthday_range : monthday_date  // "Dec 25"
                | monthday_date "-" monthday_date  // "Jan 1-Feb 1"
-monthday_date : [year " "] MONTH " " INT -> monthday_date_monthday
-              | [year " "] MONTH " " INT "-" INT -> monthday_date_day_to_day
+monthday_date : MONTH " " INT -> monthday_date_monthday
+              | MONTH " " INT "-" INT -> monthday_date_day_to_day
               | [year " "] MONTH -> monthday_date_month
               | [year " "] EASTER -> monthday_date_easter
 
